@@ -32,6 +32,7 @@ public class InitialLifetimeScope : LifetimeScope
 
     private static void RegisterServices(IContainerBuilder builder)
     {
+        builder.Register<MockGameLoader>(Lifetime.Singleton).AsImplementedInterfaces();
     }
 
     private void RegisterUI(IContainerBuilder builder)
@@ -59,6 +60,7 @@ public class InitialLifetimeScope : LifetimeScope
     {
         builder.RegisterEntryPoint<InjectableGameFSM>().As<GameFSM>();
 
+        builder.Register<FSMState, LoadingState>(Lifetime.Singleton);
         builder.Register<FSMState, MainMenuState>(Lifetime.Singleton).AsImplementedInterfaces();
         builder.Register<FSMState, GameplayState>(Lifetime.Singleton);
         // builder.Register<FSMState, LevelWonState>(Lifetime.Singleton);
@@ -78,7 +80,7 @@ public class InitialLifetimeScope : LifetimeScope
         Application.targetFrameRate = 60;
         _uiFrame.Initialize(_uiCamera);
 
-        Container.Resolve<GameFSM>().GoTo<MainMenuState>();
+        Container.Resolve<GameFSM>().GoTo<LoadingState>();
         // Container.Resolve<GameConfig>().Init(() =>
         // {
         // });

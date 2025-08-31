@@ -27,6 +27,11 @@ MonoBehaviour:
   - Name: Normal
     LayerType: 0
     Screens:
+    - Prefab: {fileID: 6100970281802150591, guid: 5344e0eddd67c49228b7bea5b04583d6, type: 3}
+      LoadOnDemand: 0
+      DestroyOnClose: 0
+      CloseWithEscape: 0
+      CloseWithBgClick: 0
     - Prefab: {fileID: 7049336696705048161, guid: 9f64b3fcfdf2242589a989ddda0cf7e7, type: 3}
       LoadOnDemand: 0
       DestroyOnClose: 0
