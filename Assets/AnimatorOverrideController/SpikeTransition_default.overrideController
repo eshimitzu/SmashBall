@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpikeTransition_default
+  m_Controller: {fileID: 9100000, guid: c94b9bf7c117cba49ae64fb0f3eca7d8, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 022e6837f153b3c4ba4be2e321677494, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e9ad1857638742049bb715a1aa54e935, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 535f8e2649c49ae459fd2ccf13b3160a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1e871e69fc90a284793da580b4659d0b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b62a839012dce3f4aa93c29e97d53f6b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e9ad1857638742049bb715a1aa54e935, type: 2}
