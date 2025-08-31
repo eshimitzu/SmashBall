@@ -1,0 +1,366 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ArenaBase_Ground1
+  m_Shader: {fileID: 4800000, guid: a2924bef5862b62478ee7b821dd120ae, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - AMBIENT
+  - ANIME_SOFT
+  - DIFFUSE
+  - FOG
+  - MATCAP_PERSPECTIVE
+  - OUTLINE_PASS_DISABLED
+  - SHADOWS_ENABLED
+  - VERTEX_COLORS
+  - _DETAILBLEND_MULTIPLY
+  - _DETAILUV_UV1
+  - _HEIGHTCOLORSBLEND_ALPHA_BLEND
+  - _LAYER1BLEND_ALPHA_BLEND
+  - _LAYER1UV_UV1
+  - _LAYER2BLEND_ALPHA_BLEND
+  - _LAYER2UV_UV1
+  - _LAYER3BLEND_ALPHA_BLEND
+  - _LAYER3UV_UV1
+  - _LIGHTMAPUV_UV1
+  - _MATCAPBLEND_MULTIPLY
+  - _NORMALUV2_UV1
+  - _NORMALUV_UV1
+  - _OPTFALLBACK_ALL
+  - _OPTFOG_DISABLED
+  - _OPTLIGHTMAPPING_DISABLED
+  - _OPTPOINTLIGHTS_ALL
+  - _OPTSHADOW_ALL
+  - _PLANTTYPE_PLANT
+  - _RIMBLEND_ADDITIVE
+  - _SHADOWOVERLAYANIMATION_SCROLL
+  - _SPECULARUV_UV1
+  m_InvalidKeywords:
+  - VERTEX_COLORS_BRIGHTNESS
+  - _ANIMATIONTYPE_NONE
+  - _ANIMATION_NONE
+  - _ANIMATION_UV_NONE
+  - _COLORMETHOD_TEXTURE
+  - _DETAIL_NONE
+  - _UVMODE_DEFAULT
+  - _ZWRITE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - SRPDEFAULTUNLIT
+  m_LockedProperties:
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _DetailTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _EmissiveTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _HeightColorsTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _Layer1Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _Layer2Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _Layer3Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _LightmapTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _MainTex:
+        m_Texture: {fileID: 2800000, guid: 5e5b2d1aff6cefd48927fa55ff3c07a7, type: 3}
+        m_Scale: {x: 3, y: 3}
+        m_Offset: {x: 0, y: 0}
+      _MatCapTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _NormalTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _NormalTex2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _ReflectionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _ShadowOverlayTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _SpecularTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _TransparencyMaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: {}
+    m_Floats:
+      _AlphaTestOn: 0
+      _AmbientBrightness: 1
+      _Animation: 0
+      _AnimationType: 0
+      _Animation_UV: 0
+      _Anime: 0
+      _AnimeSoftness: 0.01
+      _AnimeThreshold1: 0.45
+      _AnimeThreshold2: 0.85
+      _AnyNameHere: 0.5
+      _BlendOp: 0
+      _Brightness: 0.8
+      _BumpScale: 1
+      _CameraFadeEnd: 0
+      _CameraFadeStart: 0
+      _CelFade: 0
+      _CelSmoothness: 0
+      _CelThreshold: 0
+      _ColorMethod: 1
+      _Contrast: 1
+      _Cull: 2
+      _Culling: 2
+      _Cutoff: 0.5
+      _Cutout: 0
+      _CutoutCutoff: 0.5
+      _DestBlend: 10
+      _Detail: 0
+      _DetailBlend: 2
+      _DetailBrightness: 1
+      _DetailContrast: 1
+      _DetailLighting: 0
+      _DetailNormalMapScale: 1
+      _DetailUV: 0
+      _DetailVertexColors: 0
+      _Diffuse: 1
+      _DiffuseBrightness: 1
+      _DiffuseContrast: 1
+      _DiffusePerPixel: 0
+      _DiffuseWrap: 0
+      _DstBlend: 0
+      _EnableCel: 0
+      _EnableColoradjustments: 0
+      _EnableDetailTexture: 0
+      _EnableEmission: 0
+      _EnableGI: 0
+      _EnableMatcap: 0
+      _EnableReflections: 0
+      _EnableRim: 0
+      _EnableSpecularity: 0
+      _EnableTriplanar: 0
+      _FlagFreq: 4.5
+      _FlagFrequency: 4.5
+      _FlagNormalThreshold: 0.35
+      _Flat: 0
+      _Fog: 1
+      _GlossMapScale: 1
+      _Glossiness: 0.198
+      _GlossyReflections: 1
+      _Gooch: 0
+      _GoochContrast: 1
+      _GoochDarkLightness: 0.5
+      _GoochDarkThreshold: 0.5
+      _HeightColors: 0
+      _HeightColorsAlpha: 1
+      _HeightColorsBlend: 0
+      _HeightColorsEdgeThickness: 1
+      _HeightColorsHeight: 0
+      _HeightColorsSpace: 0
+      _HeightColorsThickness: 0
+      _IgnoreMainTexAlpha: 0
+      _Layer1Alpha: 1
+      _Layer1Blend: 0
+      _Layer1Brightness: 1
+      _Layer1UV: 0
+      _Layer1VertexColor: 0
+      _Layer2Alpha: 1
+      _Layer2Blend: 0
+      _Layer2Brightness: 1
+      _Layer2UV: 0
+      _Layer2VertexColor: 0
+      _Layer3Alpha: 1
+      _Layer3Blend: 0
+      _Layer3Brightness: 1
+      _Layer3UV: 0
+      _Layer3VertexColor: 0
+      _LightSteps: 4
+      _LightmapBrightness: 1
+      _LightmapUV: 0
+      _MatCapBlend: 0
+      _MatCapBrightness: 1
+      _MatCapContrast: 1
+      _MatCapPerspective: 1
+      _MatCapStatic: 0
+      _MatcapAdditive: 0
+      _MatcapMixAmount: 1
+      _Metallic: 0
+      _MixAmount: 1
+      _MixedLighting: 0
+      _Mode: 0
+      _Normal2Strength: 1
+      _NormalStrength: 1
+      _NormalUV: 0
+      _NormalUV2: 0
+      _OcclusionStrength: 1
+      _OptFallback: 0
+      _OptFog: 1
+      _OptLightmapping: 1
+      _OptPointLights: 0
+      _OptShadow: 0
+      _Outline: 0
+      _OutlineComp: 8
+      _OutlineGroup: 0
+      _OutlinePass: 0
+      _OutlineWidth: 0.002
+      _OutlineWidthIndependent: 0
+      _OutlineZPos: 0
+      _Parallax: 0.02
+      _Plant: 0
+      _PlantAmp: 0.4
+      _PlantBaseHeight: 0
+      _PlantLocal: 0
+      _PlantPhaseVariation: 72.5
+      _PlantSwayAmount: 1.02
+      _PlantSwaySpeed: 2.28
+      _PlantType: 0
+      _PlantXSpeed: 0.4
+      _PlantZSpeed: 0.4
+      _Preset: 0
+      _Reflection: 0
+      _ReflectionAmount: 1
+      _ReflectionRim: 0
+      _ReflectionSpecular: 0
+      _Rim: 0
+      _RimAmount: 1
+      _RimBlend: 1
+      _RimContrast: 5
+      _RimHardness: 0
+      _RimInverse: 0
+      _RimOpacity: 1
+      _RimPower: 0.1
+      _RimScale: 1
+      _SailAmp: 0.4
+      _SailAmplitude: 0.5
+      _SailFreqX: 2
+      _SailFreqY: 2
+      _SailFrequencyX: 2
+      _SailFrequencyY: 2
+      _SailNormalThreshold: 1
+      _SailSpeed: 1
+      _Saturation: 1
+      _Scale: 1
+      _ShadeFocus: 0
+      _ShadeOffset: 0.5
+      _ShadeSaturation: 0
+      _ShadowOverlayAnimation: 0
+      _ShadowOverlayBrightness: 1
+      _ShadowOverlaySpeedU: 0.1
+      _ShadowOverlaySpeedV: 0.03
+      _ShadowOverlaySwayAmount: 0.01
+      _ShadowsEnabled: 1
+      _Smoothess: 0.5
+      _Smoothness: 0
+      _SmoothnessA: 0.078
+      _SmoothnessB: 0.212
+      _SmoothnessTextureChannel: 0
+      _SourceBlend: 5
+      _Specular: 0
+      _SpecularBrightness: 1
+      _SpecularHair: 0
+      _SpecularHighlights: 1
+      _SpecularSmoothness: 20
+      _SpecularUV: 0
+      _SrcBlend: 1
+      _TransparencyMaskAmount: 1
+      _TransparencyMaskContrast: 1
+      _TriplanarBlend: 50
+      _UVAnimationSpeedX: 0.1
+      _UVAnimationSpeedY: 0.1
+      _UVMode: 0
+      _UVScroll: 0
+      _UVScrollXSpeed: 0.4
+      _UVScrollYSpeed: 0.4
+      _UVSec: 0
+      _UVTile: 0
+      _UVTileDiscardUV: 1
+      _UVTileV0U0: 0
+      _UVTileV0U1: 0
+      _UVTileV0U2: 0
+      _UVTileV0U3: 0
+      _UVTileV1U0: 0
+      _UVTileV1U1: 0
+      _UVTileV1U2: 0
+      _UVTileV1U3: 0
+      _UVTileV2U0: 0
+      _UVTileV2U1: 0
+      _UVTileV2U2: 0
+      _UVTileV2U3: 0
+      _UVTileV3U0: 0
+      _UVTileV3U1: 0
+      _UVTileV3U2: 0
+      _UVTileV3U3: 0
+      _VertexColors: 1
+      _VertexColorsAmount: 1
+      _VertexColorsBrightness: 0
+      _VertexColorsContrast: 1
+      _VertexColorsSaturation: 1
+      _WorldScale: 0
+      _ZOffset: 0
+      _ZTest: 4
+      _ZWrite: 1
+      __dirty: 0
+    m_Colors:
+      _AnimeColor1: {r: 1, g: 1, b: 1, a: 1}
+      _AnimeColor2: {r: 1.35, g: 1.35, b: 1.35, a: 1}
+      _AnimeColor3: {r: 2, g: 2, b: 2, a: 1}
+      _BaseColor: {r: 0.20825914, g: 0.6792453, b: 0.34955496, a: 1}
+      _Color: {r: 0.20825918, g: 0.6792453, b: 0.349555, a: 1}
+      _ColorA: {r: 0.5540752, g: 0.754717, b: 0.3809185, a: 1}
+      _ColorB: {r: 0.3568179, g: 0.7075472, b: 0.20358667, a: 1}
+      _DetailColor: {r: 1, g: 1, b: 1, a: 1}
+      _EmissionColor: {r: 0.16260235, g: 0.5471698, b: 0.3159648, a: 1}
+      _Emissive: {r: 0, g: 0, b: 0, a: 0}
+      _FlagDirAndSpeed: {r: 0.1, g: 0, b: 0, a: 2}
+      _FlagDirSpeed: {r: 0.1, g: 0, b: 0, a: 2}
+      _GoochBright: {r: 1, g: 1, b: 1, a: 1}
+      _GoochDark: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
+      _HeightColorsColor: {r: 1, g: 1, b: 1, a: 1}
+      _Layer1Color: {r: 1, g: 1, b: 1, a: 1}
+      _Layer2Color: {r: 1, g: 1, b: 1, a: 1}
+      _Layer3Color: {r: 1, g: 1, b: 1, a: 1}
+      _LightmapColor: {r: 1, g: 1, b: 1, a: 1}
+      _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
+      _MatCapRot: {r: 0, g: 0, b: 0, a: 0}
+      _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+      _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
+      _RimColor: {r: 1, g: 1, b: 1, a: 1}
+      _RimDirection: {r: 0, g: 0, b: 0, a: 0}
+      _ShadowColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+      _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

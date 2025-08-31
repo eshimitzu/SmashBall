@@ -1,0 +1,18 @@
+.tween-property .unity-property-field__label {
+    min-width: 90px;
+    flex-shrink: 1;
+    max-width: 0;
+}
+
+.selected-tween-editor {
+    border-left-color: rgba(255, 249, 59, 255);
+    border-right-color: rgba(255, 249, 59, 255);
+    border-top-color: rgba(255, 249, 59, 255);
+    border-bottom-color: rgba(255, 249, 59, 255);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    transition-property: all, border-width;
+    transition-duration: 0s, 0.1s;
+}
