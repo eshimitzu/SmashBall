@@ -12,12 +12,14 @@ public class InitialLifetimeScope : LifetimeScope
     [SerializeField] private UISettings _uiSettings;
     [SerializeField] private Camera _uiCamera;
     [SerializeField] private Canvas _mainCanvas;
-    
+    [SerializeField] private GameplayConfig gameplayConfig;
+
     private UIFrame _uiFrame;
     
     protected override void Configure(IContainerBuilder builder)
     {
-        builder.Register<AutoInjectFactory>(Lifetime.Scoped).AsSelf();
+        builder.RegisterInstance(gameplayConfig).AsSelf();
+        builder.Register<AutoInjectFactory>(Lifetime.Singleton).AsSelf();
         
         // builder.Register<GameConfig>(Lifetime.Singleton);
         builder.RegisterInstance(new CameraActivator(_uiCamera));
@@ -70,6 +72,8 @@ public class InitialLifetimeScope : LifetimeScope
 
     private static void RegisterData(IContainerBuilder builder)
     {
+        builder.Register<PlayerInput>(Lifetime.Singleton);
+
         // builder.RegisterEntryPoint<DataManager>().AsSelf();
         // builder.Register<IPersistentDataHandler, PlayerPrefsDataHandler>(Lifetime.Singleton);
         // builder.Register<PlayerData>(Lifetime.Singleton).As<PersistentDataBase>().AsSelf();

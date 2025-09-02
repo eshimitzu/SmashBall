@@ -1,0 +1,26 @@
+using UnityEngine;
+using VContainer;
+
+public class PlayerInputController : MonoBehaviour
+{
+    [SerializeField] CharacterController characterController;
+    [SerializeField] PlayerAnimationsController animationsController;
+
+    [Inject] private PlayerInput playerInput;
+    [Inject] private GameplayConfig gameplayConfig;
+
+    private void Update()
+    {
+        if (playerInput.InputVector.magnitude > 0)
+        {
+            Vector3 dir = new Vector3(playerInput.InputVector.x, 0, playerInput.InputVector.y);
+            Vector3 delta = dir * gameplayConfig.playerSpeed * Time.deltaTime;
+            characterController.Move(delta + Physics.gravity * Time.deltaTime);
+
+            var lookRotation = Quaternion.LookRotation(dir, Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, gameplayConfig.playerRotationSpeed * Time.deltaTime);
+        }
+        
+        animationsController.UpdateSpeed(playerInput.InputVector.magnitude);
+    }
+}

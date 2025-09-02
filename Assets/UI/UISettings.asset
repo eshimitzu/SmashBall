@@ -37,6 +37,16 @@ MonoBehaviour:
       DestroyOnClose: 0
       CloseWithEscape: 0
       CloseWithBgClick: 0
+    - Prefab: {fileID: 3274030314536790809, guid: 58b1b24c6be3e46d19dd0e2bcf61c0f5, type: 3}
+      LoadOnDemand: 0
+      DestroyOnClose: 0
+      CloseWithEscape: 0
+      CloseWithBgClick: 0
+    - Prefab: {fileID: 4802724894443036689, guid: 58baf184cde2341d2b354648b8859785, type: 3}
+      LoadOnDemand: 0
+      DestroyOnClose: 0
+      CloseWithEscape: 0
+      CloseWithBgClick: 0
   - Name: Foreground
     LayerType: 0
     Screens: []

@@ -159,6 +159,7 @@ MonoBehaviour:
   _uiSettings: {fileID: 11400000, guid: 2138a5d6c271a4e76be6a5b18b8875bb, type: 2}
   _uiCamera: {fileID: 689608901}
   _mainCanvas: {fileID: 940612017}
+  gameplayConfig: {fileID: 11400000, guid: d7ea324ba385c4cf0a058c7ffe975015, type: 2}
 --- !u!4 &495720490
 Transform:
   m_ObjectHideFlags: 0
@@ -254,7 +255,7 @@ Camera:
   m_GameObject: {fileID: 689608898}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -279,7 +280,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:

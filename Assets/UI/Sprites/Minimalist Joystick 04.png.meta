@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: e928577c768bb57439dc8524b902cd2e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Joystick
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 50
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.49999994}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 0
+  flipbookColumns: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Joystick
+      rect:
+        serializedVersion: 2
+        x: 522.0761
+        y: 122.07612
+        width: 155.84778
+        height: 155.84778
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49999994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -56, y: -76.00001}
+        - {x: -78, y: -60.00001}
+        - {x: -78, y: 61.999992}
+        - {x: -72, y: 77.99999}
+        - {x: 52, y: 77.99999}
+        - {x: 78, y: 58.99999}
+        - {x: 78, y: -43.000008}
+        - {x: 54.000004, y: -78.00001}
+        - {x: -51, y: -78.00001}
+      physicsShape:
+      - - {x: 68, y: -41.000008}
+        - {x: 78, y: -17.000008}
+        - {x: 78, y: 16.999992}
+        - {x: 72.99999, y: 30.999992}
+        - {x: 64, y: 46.999992}
+        - {x: 42, y: 67.99999}
+        - {x: 17, y: 77.99999}
+        - {x: -19.999998, y: 77.99999}
+        - {x: -48, y: 63.999992}
+        - {x: -63, y: 46.999992}
+        - {x: -72.99999, y: 30.999992}
+        - {x: -77, y: 12.999992}
+        - {x: -78, y: 9.999991}
+        - {x: -78, y: -14.000008}
+        - {x: -72.99999, y: -31.000008}
+        - {x: -63, y: -47.000008}
+        - {x: -47, y: -63.000008}
+        - {x: -31, y: -73}
+        - {x: -13, y: -77.00001}
+        - {x: -9.999999, y: -78.00001}
+        - {x: 14, y: -78.00001}
+        - {x: 31, y: -73}
+        - {x: 47, y: -63.000008}
+        - {x: 58, y: -52.000008}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56e13f6aa3a043ec88f90effadff93f8
+      internalID: 21300000
+      vertices:
+      - {x: 155.92389, y: 136.92389}
+      - {x: 131.92389, y: -0.07611084}
+      - {x: 155.92389, y: 34.92389}
+      - {x: 129.92389, y: 155.92389}
+      - {x: 26.92389, y: -0.07611084}
+      - {x: 21.92389, y: 1.9238892}
+      - {x: 5.923889, y: 155.92389}
+      - {x: -0.07611084, y: 139.92389}
+      - {x: -0.07611084, y: 17.923885}
+      indices: 080000000700000005000000060000000500000007000000030000000500000006000000040000000500000003000000010000000400000003000000000000000100000003000000020000000100000000000000
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Joystick: 21300000
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

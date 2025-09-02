@@ -14,6 +14,8 @@ namespace Dyra
         {
             await SceneManager.LoadSceneAsync("BattleScene", LoadSceneMode.Additive);
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("BattleScene"));
+            
+            _uiFrame.Open<BattleScreen>();    
         }
     }
 }
