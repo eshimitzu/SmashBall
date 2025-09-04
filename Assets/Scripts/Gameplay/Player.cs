@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using VContainer;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private PlayerAnimationsController animationsController;
 
-    // Update is called once per frame
-    void Update()
+    public Ball ball;
+    
+    
+    public void Attack()
     {
-        
+        float distance = (ball.transform.position - transform.position).magnitude;
+        if (distance < 3)
+        {
+            var newDir = Vector3.Reflect(ball.Velocity, transform.forward);
+            ball.Reflect(newDir);
+        }
+        animationsController.Swing();
     }
 }

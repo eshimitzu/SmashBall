@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInput
 {
     private Vector2 inputVector = Vector2.zero;
+    
+    public bool IsPointerUp { get; set; }
+
 
     public Vector2 InputVector => inputVector;
 

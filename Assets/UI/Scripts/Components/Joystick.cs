@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using VContainer;
@@ -10,7 +11,6 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     
     [Header("Joystick Settings")]
     [SerializeField] private float handleRange = 100f;
-    [SerializeField] private float deadZone = 0.2f;
     
     private Vector2 inputVector = Vector2.zero;
 
@@ -24,18 +24,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     private void Start()
     {
-        InitializeJoystick();
+        playerInput.IsPointerUp = false;
+        ResetJoystick();
     }
 
-    private void InitializeJoystick()
-    {
-        inputVector = Vector2.zero;
-        playerInput.SetInputVector(inputVector);
-
-        joystickBackground.gameObject.SetActive(false);
-        joystickHandle.gameObject.SetActive(false);
-    }
-
+    
     public void OnPointerDown(PointerEventData eventData)
     {
         joystickBackground.gameObject.SetActive(true);
@@ -45,6 +38,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         joystickHandle.anchoredPosition = eventData.position;
     }
 
+    
     public void OnDrag(PointerEventData eventData)
     {
         if (joystickBackground == null || joystickHandle == null) return;
@@ -58,17 +52,15 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         playerInput.SetInputVector(inputVector);
     }
 
+    
     public void OnPointerUp(PointerEventData eventData)
     {
-        inputVector = Vector2.zero;
-        playerInput.SetInputVector(inputVector);
-
-        joystickBackground.gameObject.SetActive(false);
-        joystickHandle.gameObject.SetActive(false);
+        ResetJoystick();
+        playerInput.IsPointerUp = true;
     }
 
 
-    public void ResetJoystick()
+    private void ResetJoystick()
     {
         inputVector = Vector2.zero;
         playerInput.SetInputVector(inputVector);

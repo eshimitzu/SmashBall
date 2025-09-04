@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4223238694006208}
   - component: {fileID: 65790165984338724}
   - component: {fileID: 95745454385286396}
+  - component: {fileID: -8067232414821832490}
   m_Layer: 9
   m_Name: Bumper
   m_TagString: wallBumper
@@ -76,6 +77,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8067232414821832490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164375236990226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f1b2e6cb0c346cf90df31b3d8a6d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95745454385286396}
 --- !u!1 &1232167947616682
 GameObject:
   m_ObjectHideFlags: 0

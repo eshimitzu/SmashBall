@@ -11,8 +11,6 @@ public class GameplayLifetimeScope : LifetimeScope
 
     protected override void Configure(IContainerBuilder builder)
     {
-        // builder.RegisterInstance(gameplayConfig).AsSelf();
-        
         builder.RegisterComponent(arena);
         builder.RegisterComponent(gameplayCamera);
         builder.RegisterComponent(gameplay);
