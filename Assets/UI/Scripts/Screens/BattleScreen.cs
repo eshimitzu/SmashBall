@@ -8,8 +8,6 @@ namespace Dyra
     {
         [Inject] private GameFSM _gameFsm;
         
-        
-        
         protected override void OnOpening()
         {
         }

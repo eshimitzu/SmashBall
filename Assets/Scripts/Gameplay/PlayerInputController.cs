@@ -4,8 +4,6 @@ using VContainer;
 public class PlayerInputController : MonoBehaviour
 {
     [SerializeField] private Player player;
-    [SerializeField] private CharacterController characterController;
-    [SerializeField] private PlayerAnimationsController animationsController;
 
     [Inject] private PlayerInput playerInput;
     [Inject] private GameplayConfig gameplayConfig;
@@ -16,7 +14,7 @@ public class PlayerInputController : MonoBehaviour
         {
             Vector3 dir = new Vector3(playerInput.InputVector.x, 0, playerInput.InputVector.y);
             Vector3 delta = dir * (gameplayConfig.playerSpeed * Time.deltaTime);
-            characterController.Move(delta + Physics.gravity * Time.deltaTime);
+            player.Move(delta + Physics.gravity * Time.deltaTime);
 
             var lookRotation = Quaternion.LookRotation(dir, Vector3.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, gameplayConfig.playerRotationSpeed * Time.deltaTime);
@@ -28,6 +26,6 @@ public class PlayerInputController : MonoBehaviour
             playerInput.IsPointerUp = false;
         }
         
-        animationsController.UpdateSpeed(playerInput.InputVector.magnitude);
+        player.AnimationsController.UpdateSpeed(playerInput.InputVector.magnitude);
     }
 }

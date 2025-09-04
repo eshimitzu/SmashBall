@@ -18,4 +18,16 @@ public class PlayerAnimationsController : MonoBehaviour
     {
         animator.Play(Swing1);
     }
+    
+    
+    public void ServeStart()
+    {
+        animator.Play("ServiceStart");
+    }
+    
+    
+    public void Serve()
+    {
+        animator.Play("ServiceNormal");
+    }
 }

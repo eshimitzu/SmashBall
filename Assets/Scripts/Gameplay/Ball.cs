@@ -1,26 +1,48 @@
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public class Ball : Singleton<Ball>
 {
+    [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Rigidbody body;
+    [SerializeField] private Material playerMaterial;
+    [SerializeField] private Material enemyMaterial;
+    [SerializeField] private GameObject[] powerEffects;
 
-    private Vector3 velocity;
-    private int damage;
+    public Vector3 Velocity { get; private set; }
+    public int Damage { get; private set; }
+    public AttackPower AttackPower { get; private set; }
+    public BallOwner BallOwner { get; private set; }
 
-    public Vector3 Velocity => velocity;
 
-
-    private void Start()
+    public void SetBallOwner(BallOwner owner)
     {
-        velocity = Vector3.forward * 10;
+        BallOwner = owner;
+        meshRenderer.sharedMaterial = owner == BallOwner.Player  ? playerMaterial : enemyMaterial;
+    }
+
+    public void SetAttackPower(AttackPower power)
+    {
+        for (var i = 0; i < powerEffects.Length; i++)
+        {
+            var effect = powerEffects[i];
+            effect?.SetActive((int)power == i);
+        }
+
+        AttackPower = power;
+    }
+    
+    
+    public void SetVelocity(Vector3 newVelocity)
+    {
+        this.Velocity = newVelocity;
     }
 
     private void FixedUpdate()
     {
-        body.MovePosition(body.position + velocity * Time.fixedDeltaTime);
+        body.MovePosition(body.position + Velocity * Time.fixedDeltaTime);
     }
 
-    public void ApplyDamage(int newDamage)
+    public void SetDamage(int newDamage)
     {
         
     }
@@ -28,7 +50,7 @@ public class Ball : MonoBehaviour
     
     public void Reflect(Vector3 newDirection)
     {
-        velocity = newDirection.normalized * velocity.magnitude;
+        Velocity = newDirection.normalized * Velocity.magnitude;
     }
     
 
@@ -37,9 +59,9 @@ public class Ball : MonoBehaviour
         if (other.CompareTag("wallBumper"))
         {
             var bumper = other.gameObject.GetComponent<Bumper>();
-            var newDir = Vector3.Reflect(velocity, bumper.transform.forward);
+            var newDir = Vector3.Reflect(Velocity, bumper.transform.forward);
             Reflect(newDir);
-            other.gameObject.GetComponent<Bumper>().Bump();
+            bumper.Bump();
         }
     }
 }

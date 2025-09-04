@@ -12,10 +12,10 @@ namespace Dyra
     
         public override async UniTask OnEnter()
         {
+            _uiFrame.Open<BattleScreen>();    
+
             await SceneManager.LoadSceneAsync("BattleScene", LoadSceneMode.Additive);
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("BattleScene"));
-            
-            _uiFrame.Open<BattleScreen>();    
         }
     }
 }

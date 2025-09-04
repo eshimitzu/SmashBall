@@ -16,3 +16,6 @@ MonoBehaviour:
   ballPrefab: {fileID: 185132685164702815, guid: 164788ca97c82c44b83bad7192e23005, type: 3}
   playerSpeed: 5
   playerRotationSpeed: 10
+  ballServeOffset: 3
+  serveCameraSettings: {fileID: 11400000, guid: c0858a885e40849869e641a41bb19f75, type: 2}
+  gameCameraSettings: {fileID: 11400000, guid: 16fa89f09b83746e285d2754e97e107c, type: 2}
