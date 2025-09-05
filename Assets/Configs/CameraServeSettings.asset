@@ -15,5 +15,5 @@ MonoBehaviour:
   followDistance: 10.3
   offset: {x: 0, y: 0, z: 2.8}
   fieldOfView: 60
-  followSpeed: 10000
+  followSpeed: 5
   rotation: {x: 39.2, y: 0, z: 0}

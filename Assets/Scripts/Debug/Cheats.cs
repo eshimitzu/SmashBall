@@ -1,19 +1,23 @@
 using Dyra;
 using Dyra.Flow;
+using SmashBall.GameFlow.GameStates;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-public class Cheats : ITickable
+namespace SmashBall.Cheats
 {
-    [Inject] private GameFSM fsm;
-
-
-    public void Tick()
+    public class Cheats : ITickable
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        [Inject] private GameFSM fsm;
+
+
+        public void Tick()
         {
-            fsm.GoTo<ResultState>();
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                fsm.GoTo<ResultState>();
+            }
         }
     }
 }

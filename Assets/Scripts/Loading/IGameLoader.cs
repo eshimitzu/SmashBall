@@ -1,7 +1,10 @@
 using Cysharp.Threading.Tasks;
 
-public interface IGameLoader
+namespace SmashBall.Loading
 {
-    public UniTask Load();
-    float CurrentProgress { get; }
+    public interface IGameLoader
+    {
+        public UniTask Load();
+        float CurrentProgress { get; }
+    }
 }

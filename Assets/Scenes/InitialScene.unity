@@ -288,6 +288,7 @@ MonoBehaviour:
   _uiCamera: {fileID: 689608901}
   _mainCanvas: {fileID: 940612017}
   gameplayConfig: {fileID: 11400000, guid: d7ea324ba385c4cf0a058c7ffe975015, type: 2}
+  heroesConfig: {fileID: 11400000, guid: 6cad383e1eaf14ee6addb8c8e11509d2, type: 2}
   soundManager: {fileID: 864962886}
 --- !u!4 &495720490
 Transform:

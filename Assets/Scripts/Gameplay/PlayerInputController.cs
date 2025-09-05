@@ -1,3 +1,4 @@
+using SmashBall.Configs;
 using SmashBall.Gameplay;
 using UnityEngine;
 using VContainer;
@@ -8,9 +9,13 @@ public class PlayerInputController : MonoBehaviour
 
     [Inject] private PlayerInput playerInput;
     [Inject] private GameplayConfig gameplayConfig;
+    [Inject] private IGameplay gameplay;
 
     private void Update()
     {
+        if(gameplay.CurrentGameplayState.Value != GameplayState.Play)
+            return;
+        
         if (playerInput.InputVector.magnitude > 0)
         {
             Vector3 dir = new Vector3(playerInput.InputVector.x, 0, playerInput.InputVector.y);

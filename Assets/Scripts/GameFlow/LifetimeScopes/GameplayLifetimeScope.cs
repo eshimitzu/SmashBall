@@ -1,25 +1,27 @@
 using Dyra.Common;
+using SmashBall.Configs;
 using SmashBall.Gameplay;
 using SmashBall.UI.Presenters;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VContainer;
 using VContainer.Unity;
 
-public class GameplayLifetimeScope : LifetimeScope
+namespace SmashBall.GameFlow.LifetimeScopes
 {
-    [SerializeField] private GameplayCamera gameplayCamera;
-    [SerializeField] private Arena arena;
-    [SerializeField] private GameplayConfig gameplayConfig;
-    [FormerlySerializedAs("gameplay")] [SerializeField] private GameplayPvP gameplayPvP;
-    
-    protected override void Configure(IContainerBuilder builder)
+    public class GameplayLifetimeScope : LifetimeScope
     {
-        builder.Register<AutoInjectFactory>(Lifetime.Scoped).AsSelf();
+        [SerializeField] private GameplayCamera gameplayCamera;
+        [SerializeField] private Arena arena;
+        [SerializeField] private GameplayPvP gameplay;
+    
+        protected override void Configure(IContainerBuilder builder)
+        {
+            builder.Register<AutoInjectFactory>(Lifetime.Scoped).AsSelf();
 
-        builder.RegisterComponent(arena);
-        builder.RegisterComponent(gameplayCamera);
-        builder.RegisterComponent(gameplayPvP).AsImplementedInterfaces();
-        builder.Register<MessagePresenter>(Lifetime.Singleton);
+            builder.RegisterComponent(arena);
+            builder.RegisterComponent(gameplayCamera);
+            builder.RegisterComponent(gameplay).AsImplementedInterfaces();
+            builder.Register<MessagePresenter>(Lifetime.Singleton);
+        }
     }
 }

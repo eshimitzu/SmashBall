@@ -8,7 +8,9 @@ public class PlayerAnimationsController : MonoBehaviour
     private static readonly int ForwardSpeed = Animator.StringToHash("ForwardSpeed");
     private static readonly int Swing1 = Animator.StringToHash("Swing1");
 
-    
+    public Animator Animator => animator;
+
+
     public void UpdateSpeed(float speed)
     {
         animator.SetFloat(ForwardSpeed, speed);

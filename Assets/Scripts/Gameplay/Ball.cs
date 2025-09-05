@@ -1,4 +1,7 @@
-using Dyra.Sounds;
+using DG.Tweening;
+using SmashBall.Extensions;
+using SmashBall.Gameplay;
+using SmashBall.Sounds;
 using UniRx;
 using UnityEngine;
 using VContainer;
@@ -17,18 +20,37 @@ public class Ball : MonoBehaviour
     
     public ReactiveProperty<int> Damage = new(1);
     
-    public AttackPower AttackPower { get; private set; }
+    public HitQuality AttackPower { get; private set; }
     
-    public BallOwner BallOwner { get; private set; }
+    public OwnerType BallOwner { get; private set; }
 
 
-    public void SetBallOwner(BallOwner owner)
+    public void Reset()
     {
-        BallOwner = owner;
-        meshRenderer.sharedMaterial = owner == BallOwner.Player  ? playerMaterial : enemyMaterial;
+        SetVelocity(Vector3.zero);
+        SetBallOwner(OwnerType.Player);
+        SetAttackPower(HitQuality.Early);
+        SetDamage(1);
     }
 
-    public void SetAttackPower(AttackPower power)
+    public void Spawn(Vector3 position)
+    {
+        gameObject.SetActive(true);
+        
+        soundManager.PlaySFX("BallSpawn");
+        
+        transform.localScale = Vector3.one;
+        transform.position = position;
+        transform.DOScale(1f, 0.5f).OnDestroy(this);
+    }
+
+    public void SetBallOwner(OwnerType owner)
+    {
+        BallOwner = owner;
+        meshRenderer.sharedMaterial = owner == OwnerType.Player  ? playerMaterial : enemyMaterial;
+    }
+
+    public void SetAttackPower(HitQuality power)
     {
         for (var i = 0; i < powerEffects.Length; i++)
         {
@@ -60,6 +82,13 @@ public class Ball : MonoBehaviour
     {
         Velocity = newDirection.normalized * Velocity.magnitude;
     }
+
+
+    public void PlayHit(Vector3 dir)
+    {
+        transform.localScale = Vector3.one;
+        transform.DOShakeScale(0.3f, 0.3f, 1, 1).OnDestroy(this);
+    }
     
 
     private void OnTriggerEnter(Collider other)
@@ -71,6 +100,8 @@ public class Ball : MonoBehaviour
             {
                 var newDir = Vector3.Reflect(Velocity, bumper.transform.forward);
                 Reflect(newDir);
+                PlayHit(newDir);
+
                 bumper.Bump();
                 
                 soundManager.PlaySFX("Bounce");

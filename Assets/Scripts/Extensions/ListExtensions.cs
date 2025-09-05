@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Everyday
+namespace SmashBall.Extensions
 {
     public static class ListExtensions
     {

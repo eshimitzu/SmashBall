@@ -1,19 +1,22 @@
 using UnityEditor;
 using UnityEngine;
 
-public class RemoveMissingComponents
+namespace SmashBall.Editor
 {
-    [MenuItem("Tools/Remove Missing Components")]
-    public static void FixPrefab()
+    public class RemoveMissingComponents
     {
-        var gameObject = Selection.activeGameObject;
-        var allObjects = gameObject.GetComponentsInChildren<Transform>(true);
-
-        foreach (var obj in allObjects)
+        [MenuItem("Tools/Remove Missing Components")]
+        public static void FixPrefab()
         {
-            GameObjectUtility.RemoveMonoBehavioursWithMissingScript(obj.gameObject);
-        }
+            var gameObject = Selection.activeGameObject;
+            var allObjects = gameObject.GetComponentsInChildren<Transform>(true);
+
+            foreach (var obj in allObjects)
+            {
+                GameObjectUtility.RemoveMonoBehavioursWithMissingScript(obj.gameObject);
+            }
         
-        EditorUtility.SetDirty(gameObject);
+            EditorUtility.SetDirty(gameObject);
+        }
     }
 }

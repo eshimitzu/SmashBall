@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Dyra.Sounds
+namespace SmashBall.Sounds
 {
     public class SoundManager : MonoBehaviour
     {

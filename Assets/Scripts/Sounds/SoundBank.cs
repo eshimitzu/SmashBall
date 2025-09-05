@@ -1,7 +1,7 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace Dyra.Sounds
+namespace SmashBall.Sounds
 {
     [CreateAssetMenu(fileName = "SoundBank", menuName = "Dyra/SoundBank", order = 0)]
     public class SoundBank : ScriptableObject

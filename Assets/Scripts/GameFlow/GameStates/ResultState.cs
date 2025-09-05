@@ -1,9 +1,10 @@
 using Cysharp.Threading.Tasks;
 using Dyra.Flow;
+using SmashBall.UI.Screens;
 using UIFramework.Runtime;
 using VContainer;
 
-namespace Dyra
+namespace SmashBall.GameFlow.GameStates
 {
     public class ResultState : FSMState
     {

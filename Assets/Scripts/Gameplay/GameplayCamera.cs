@@ -1,3 +1,6 @@
+using DG.Tweening;
+using SmashBall.Configs;
+using SmashBall.Extensions;
 using UnityEngine;
 
 public class GameplayCamera : MonoBehaviour
@@ -18,7 +21,12 @@ public class GameplayCamera : MonoBehaviour
     {
         followTarget = target;
     }
-    
+
+    public void Shake(float force = 0.3f)
+    {
+        cam.transform.localPosition = Vector3.zero;
+        cam.transform.DOShakePosition(0.3f, force).OnDestroy(this);
+    }
     
     private void Update()
     {

@@ -1,26 +1,29 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class MockGameLoader : IGameLoader
+namespace SmashBall.Loading
 {
-    private float duration = 2f;
-    public float CurrentProgress { get; protected set; }
-    
-    
-    public async UniTask Load()
+    public class MockGameLoader : IGameLoader
     {
-        float elapsedTime = 0f;
-        
-        while (elapsedTime < duration)
+        private float duration = 2f;
+        public float CurrentProgress { get; protected set; }
+    
+    
+        public async UniTask Load()
         {
-            elapsedTime += Time.deltaTime;
-            float progress = Mathf.Clamp01(elapsedTime / duration);
+            float elapsedTime = 0f;
+        
+            while (elapsedTime < duration)
+            {
+                elapsedTime += Time.deltaTime;
+                float progress = Mathf.Clamp01(elapsedTime / duration);
             
-            CurrentProgress = progress;
+                CurrentProgress = progress;
             
-            await UniTask.Yield();
-        }
+                await UniTask.Yield();
+            }
 
-        CurrentProgress = 1f;
+            CurrentProgress = 1f;
+        }
     }
 }

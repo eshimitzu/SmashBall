@@ -277,6 +277,9 @@ MonoBehaviour:
   healthLabel: {fileID: 1665218503386985104}
   healthBar: {fileID: 1403424043583465407}
   abilityBar: {fileID: 2558594564518781277}
+  healthView: {fileID: 5454773960150375506}
+  playerColor: {r: 0.23066425, g: 1, b: 0, a: 1}
+  enemyColor: {r: 0.8301887, g: 0.13848345, b: 0.043075833, a: 1}
 --- !u!1 &5268921509854887353
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,8 +422,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 9999
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 10ea7493895ee48928fe95d4dbb6903c, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 415e3a68015b2455daf03c4feceadc3c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

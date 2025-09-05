@@ -2,8 +2,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-
-namespace Everyday
+namespace SmashBall.Extensions
 {
     public class TweenOnDestroy : MonoBehaviour
     {
