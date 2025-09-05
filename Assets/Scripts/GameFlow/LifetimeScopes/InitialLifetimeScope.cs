@@ -1,6 +1,7 @@
 using Dyra;
 using Dyra.Common;
 using Dyra.Flow;
+using Dyra.Sounds;
 using UIFramework;
 using UIFramework.Runtime;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class InitialLifetimeScope : LifetimeScope
     [SerializeField] private Camera _uiCamera;
     [SerializeField] private Canvas _mainCanvas;
     [SerializeField] private GameplayConfig gameplayConfig;
+    [SerializeField] private SoundManager soundManager;
 
     private UIFrame _uiFrame;
     
@@ -20,8 +22,6 @@ public class InitialLifetimeScope : LifetimeScope
     {
         builder.RegisterInstance(gameplayConfig).AsSelf();
         builder.Register<AutoInjectFactory>(Lifetime.Singleton).AsSelf();
-        
-        // builder.Register<GameConfig>(Lifetime.Singleton);
         builder.RegisterInstance(new CameraActivator(_uiCamera));
         
         RegisterServices(builder);
@@ -30,6 +30,8 @@ public class InitialLifetimeScope : LifetimeScope
         RegisterFsm(builder);
         RegisterCommandQueues(builder);
         RegisterData(builder);
+        RegisterSound(builder);
+        AddCheats(builder);
     }
 
     private static void RegisterServices(IContainerBuilder builder)
@@ -43,8 +45,6 @@ public class InitialLifetimeScope : LifetimeScope
         builder.RegisterComponent(_uiFrame).AsSelf();
         
         _uiFrame.AddEventForAllScreens(OnScreenEvent.Created, UiFrameOnOnScreenCreated);
-        
-        // builder.Register<RewardsUIFeedbackService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
     }
     
     private void UiFrameOnOnScreenCreated(UIScreenBase screen)
@@ -63,11 +63,14 @@ public class InitialLifetimeScope : LifetimeScope
         builder.RegisterEntryPoint<InjectableGameFSM>().As<GameFSM>();
 
         builder.Register<FSMState, LoadingState>(Lifetime.Singleton);
-        builder.Register<FSMState, MainMenuState>(Lifetime.Singleton).AsImplementedInterfaces();
+        builder.Register<FSMState, MainMenuState>(Lifetime.Singleton);
         builder.Register<FSMState, GameplayState>(Lifetime.Singleton);
-        // builder.Register<FSMState, LevelWonState>(Lifetime.Singleton);
-        // builder.Register<FSMState, GameOverState>(Lifetime.Singleton);
-        // builder.Register<FSMState, UnloadGameplayState>(Lifetime.Singleton);
+        builder.Register<FSMState, ResultState>(Lifetime.Singleton);
+    }
+    
+    void RegisterSound(IContainerBuilder builder)
+    {
+        builder.RegisterComponent(soundManager);
     }
 
     private static void RegisterData(IContainerBuilder builder)
@@ -85,18 +88,10 @@ public class InitialLifetimeScope : LifetimeScope
         _uiFrame.Initialize(_uiCamera);
 
         Container.Resolve<GameFSM>().GoTo<LoadingState>();
-        // Container.Resolve<GameConfig>().Init(() =>
-        // {
-        // });
-        
-        
-        AddCheats();
     }
 
-    private void AddCheats()
+    private void AddCheats(IContainerBuilder builder)
     {
-        // var cheats = new GeneralCheats();
-        // Container.Inject(cheats);
-        // SRDebug.Instance.AddOptionContainer(cheats);
+        builder.RegisterEntryPoint<Cheats>().AsSelf();
     }
 }

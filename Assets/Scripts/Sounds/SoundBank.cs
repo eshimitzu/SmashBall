@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace Everyday.Sounds
+namespace Dyra.Sounds
 {
-    [CreateAssetMenu(fileName = "SoundBank", menuName = "Everyday/SoundBank", order = 0)]
+    [CreateAssetMenu(fileName = "SoundBank", menuName = "Dyra/SoundBank", order = 0)]
     public class SoundBank : ScriptableObject
     {
         public List<SoundEntry> sounds;

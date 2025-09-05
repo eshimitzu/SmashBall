@@ -1,9 +1,11 @@
+using Dyra;
 using Dyra.Common;
+using UIFramework.Runtime;
 using UniRx;
 using UnityEngine;
 using VContainer;
 
-public class Gameplay : Singleton<Gameplay>
+public class Gameplay : MonoBehaviour
 {
     [Inject] GameplayConfig gameplayConfig;
     [Inject] AutoInjectFactory factory;
@@ -11,6 +13,7 @@ public class Gameplay : Singleton<Gameplay>
     [Inject] Arena arena;
     [Inject] GameplayCamera camera;
     [Inject] PlayerInput input;
+    [Inject] private UIFrame uiFrame;
 
     
     private Player player;
@@ -33,6 +36,10 @@ public class Gameplay : Singleton<Gameplay>
             Quaternion.identity, 
             null);
         
+        //calculate from configs and upgrades
+        PlayerState playerState = new PlayerState(2000, 0);
+        player.Setup(playerState);
+        
         gameplayCamera.SetFollowTarget(player.transform);
         
         ball = factory.Spawn(gameplayConfig.ballPrefab, 
@@ -41,6 +48,10 @@ public class Gameplay : Singleton<Gameplay>
             null);
         
         ball.SetDamage(1);
+
+        var battleScreen = uiFrame.GetScreen<BattleScreen>();
+        battleScreen.AddStatusBar(player, gameplayCamera.Cam, Vector3.back * 0.5f);
+        battleScreen.AddBallOverlay(ball, gameplayCamera.Cam, Vector3.up * 0.45f);
         
         SetState(GameplayState.Serve);
     }
@@ -53,8 +64,8 @@ public class Gameplay : Singleton<Gameplay>
             case GameplayState.Serve:
                 ServeBar.Instance.gameObject.SetActive(true);
                 ball.SetVelocity(Vector3.zero);
-                ball.SetDamage(1);
                 ball.SetBallOwner(BallOwner.Enemy);
+                ball.transform.position = player.transform.position + Vector3.forward * gameplayConfig.ballServeOffset;
                 gameplayCamera.ApplySettings(gameplayConfig.serveCameraSettings);
                 player.AnimationsController.ServeStart();
                 player.GetComponent<PlayerInputController>().enabled = false;

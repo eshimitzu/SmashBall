@@ -1,21 +1,26 @@
 using Dyra.Flow;
 using UIFramework;
+using UnityEngine;
+using UnityEngine.UI;
 using VContainer;
 
 namespace Dyra
 {
     public class ResultScreen : UIScreen
     {
-        [Inject] private GameFSM _gameFsm;
+        [SerializeField] private Button nextButton;
+
+        [Inject] private GameFSM gameFsm;
         
-        
-        
-        protected override void OnOpening()
+    
+        private void Awake()
         {
+            nextButton.onClick.AddListener(OnNextButtonClicked);
         }
 
-        private void Update()
+        private void OnNextButtonClicked()
         {
+            gameFsm.GoTo<MainMenuState>();
         }
     }
 }

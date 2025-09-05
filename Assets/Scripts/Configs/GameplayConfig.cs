@@ -10,6 +10,9 @@ public class GameplayConfig : ScriptableObject
     [SerializeField] public float playerSpeed;
     [SerializeField] public float playerRotationSpeed;
     
+    [SerializeField] public float ballStartSpeed;
+    [SerializeField] public float ballMaxSpeed;
+    [SerializeField] public float ballSpeedUp;
     [SerializeField] public float ballServeOffset;
 
     [SerializeField] public CameraSettings serveCameraSettings;

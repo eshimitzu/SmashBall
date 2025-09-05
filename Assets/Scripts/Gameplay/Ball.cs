@@ -1,4 +1,7 @@
+using Dyra.Sounds;
+using UniRx;
 using UnityEngine;
+using VContainer;
 
 public class Ball : Singleton<Ball>
 {
@@ -8,9 +11,14 @@ public class Ball : Singleton<Ball>
     [SerializeField] private Material enemyMaterial;
     [SerializeField] private GameObject[] powerEffects;
 
+    [Inject] private SoundManager soundManager;
+    
     public Vector3 Velocity { get; private set; }
-    public int Damage { get; private set; }
+    
+    public ReactiveProperty<int> Damage = new(1);
+    
     public AttackPower AttackPower { get; private set; }
+    
     public BallOwner BallOwner { get; private set; }
 
 
@@ -44,7 +52,7 @@ public class Ball : Singleton<Ball>
 
     public void SetDamage(int newDamage)
     {
-        
+        Damage.Value = newDamage;
     }
     
     
@@ -59,9 +67,14 @@ public class Ball : Singleton<Ball>
         if (other.CompareTag("wallBumper"))
         {
             var bumper = other.gameObject.GetComponent<Bumper>();
-            var newDir = Vector3.Reflect(Velocity, bumper.transform.forward);
-            Reflect(newDir);
-            bumper.Bump();
+            if (Vector3.Dot(Velocity, bumper.transform.forward) < 0)
+            {
+                var newDir = Vector3.Reflect(Velocity, bumper.transform.forward);
+                Reflect(newDir);
+                bumper.Bump();
+                
+                soundManager.PlaySFX("Bounce");
+            }
         }
     }
 }

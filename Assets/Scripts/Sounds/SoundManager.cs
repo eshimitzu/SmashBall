@@ -1,26 +1,12 @@
 using UnityEngine;
 
-namespace Everyday.Sounds
+namespace Dyra.Sounds
 {
     public class SoundManager : MonoBehaviour
     {
-        public static SoundManager Instance { get; private set; }
-
         [SerializeField] private AudioSource musicSource;
         [SerializeField] private AudioSource sfxSource;
         [SerializeField] private SoundBank soundBank;
-
-        void Awake()
-        {
-            if (Instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
 
         public void PlaySFX(string name)
         {

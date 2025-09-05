@@ -7,6 +7,8 @@ public class GameplayCamera : MonoBehaviour
     private Transform followTarget;
     private CameraSettings settings;
 
+    public Camera Cam => cam;
+
     public void ApplySettings(CameraSettings cameraSettings)
     {
         settings = cameraSettings;

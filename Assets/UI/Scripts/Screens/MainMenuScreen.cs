@@ -11,8 +11,8 @@ namespace Dyra
         [SerializeField] private Button _playButton;
 
         [Inject] private GameFSM _gameFsm;
-    
-        protected override void OnOpening()
+
+        private void Awake()
         {
             _playButton.onClick.AddListener(OnPlayButtonClicked);
         }

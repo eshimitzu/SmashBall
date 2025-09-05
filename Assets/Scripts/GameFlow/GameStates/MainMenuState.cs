@@ -11,7 +11,7 @@ namespace Dyra
     
         public override UniTask OnEnter()
         {
-            _uiFrame.Open<MainMenuScreen>();    
+            _uiFrame.Open<MainMenuScreen>();
         
             return base.OnEnter();
         }

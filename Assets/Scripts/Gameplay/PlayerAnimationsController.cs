@@ -30,4 +30,10 @@ public class PlayerAnimationsController : MonoBehaviour
     {
         animator.Play("ServiceNormal");
     }
+    
+    
+    public void Hit()
+    {
+        animator.Play("hitReact");
+    }
 }
