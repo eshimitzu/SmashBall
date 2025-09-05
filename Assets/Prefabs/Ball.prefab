@@ -50,7 +50,10 @@ MonoBehaviour:
   body: {fileID: 431644198536118094}
   playerMaterial: {fileID: 2100000, guid: b4d86f007ad992f439c9d2f15e3c0849, type: 2}
   enemyMaterial: {fileID: 2100000, guid: c9ae0905d0f984fb1a04aff9515c32ee, type: 2}
-  powerEffects: []
+  powerEffects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1340939209112578054}
   Damage:
     value: 1
 --- !u!54 &431644198536118094
@@ -127,7 +130,7 @@ ParticleSystem:
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  emitterVelocityMode: 1
+  emitterVelocityMode: 0
   looping: 1
   prewarm: 0
   playOnAwake: 1

@@ -1,5 +1,8 @@
-public enum OwnerType
+namespace SmashBall.Gameplay
 {
-    Player,
-    Enemy
+    public enum OwnerType
+    {
+        Player,
+        Enemy
+    }
 }

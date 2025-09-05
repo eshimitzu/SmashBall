@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59338d81fc1f44d2a157fc138bb9262, type: 3}
   m_Name: GameplayConfig
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 4136754179670982931, guid: 5fa648a886e6b4f5db240707f4132d54, type: 3}
-  enemyPrefab: {fileID: 6911031323963228796, guid: 3aec3f98f86be4c13953c94a45b701f0, type: 3}
   ballPrefab: {fileID: 185132685164702815, guid: 164788ca97c82c44b83bad7192e23005, type: 3}
   playerSpeed: 5
   playerRotationSpeed: 10
-  ballStartSpeed: 0
-  ballMaxSpeed: 0
-  ballSpeedUp: 0
+  ballStartSpeed: 10
+  ballMaxSpeed: 30
+  ballSpeedUpPerHit: 2
   ballServeOffset: 3
   serveCameraSettings: {fileID: 11400000, guid: c0858a885e40849869e641a41bb19f75, type: 2}
   gameCameraSettings: {fileID: 11400000, guid: 16fa89f09b83746e285d2754e97e107c, type: 2}

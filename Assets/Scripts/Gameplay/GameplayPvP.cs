@@ -1,16 +1,16 @@
 using DG.Tweening;
 using Dyra.Common;
+using Dyra.Flow;
 using SmashBall.Configs;
 using SmashBall.Extensions;
+using SmashBall.GameFlow.GameStates;
 using SmashBall.Sounds;
-using SmashBall.UI.Components;
 using SmashBall.UI.Presenters;
 using SmashBall.UI.Screens;
 using UIFramework.Runtime;
 using UniRx;
 using UnityEngine;
 using VContainer;
-using Random = UnityEngine.Random;
 
 namespace SmashBall.Gameplay
 {
@@ -24,8 +24,8 @@ namespace SmashBall.Gameplay
         [Inject] private PlayerInput input;
         [Inject] private UIFrame uiFrame;
         [Inject] private MessagePresenter messagePresenter;
-        [Inject] private SoundManager soundManager;
         [Inject] private HeroesConfig heroesConfig;
+        [Inject] private GameFSM fsm;
 
     
         private Player player;
@@ -50,19 +50,23 @@ namespace SmashBall.Gameplay
                 null);
         
             //calculate from configs and upgrades
-            PlayerState playerState = new PlayerState(config.health, 0);
+            PlayerState playerState = new PlayerState(config.health, 20);
             player.Setup(playerState, OwnerType.Player);
             player.OnSmashed += PlayerSmashed;
-            
+            player.OnServe += PlayerServed;
+            player.OnDeath += PlayerDead;
+
             enemy = factory.Spawn(config.heroPrefabEnemy, 
                 arena.spawnPoints[1].position, 
                 Quaternion.identity, 
                 null);
 
             //calculate from configs and upgrades
-            PlayerState enemyState = new PlayerState(config.health, 0);
+            PlayerState enemyState = new PlayerState(config.health, 20);
             enemy.Setup(enemyState, OwnerType.Enemy);
             enemy.OnSmashed += PlayerSmashed;
+            enemy.OnServe += PlayerServed;
+            enemy.OnDeath += PlayerDead;
 
             gameplayCamera.SetFollowTarget(player.transform);
         
@@ -71,28 +75,21 @@ namespace SmashBall.Gameplay
                 Quaternion.identity, 
                 null);
         
-            ball.SetDamage(1);
+            ball.Reset();
 
             var battleScreen = uiFrame.GetScreen<BattleScreen>();
             battleScreen.AddStatusBar(player, gameplayCamera.Cam, Vector3.back * 0.5f);
             battleScreen.AddStatusBar(enemy, gameplayCamera.Cam, Vector3.back * 0.5f);
-            battleScreen.AddBallOverlay(ball, gameplayCamera.Cam, Vector3.up * 0.5f);
-            
-            soundManager.PlayMusic("StadiumAmbient");
+            battleScreen.AddBallOverlay(ball, gameplayCamera.Cam, Vector3.up * 0.55f);
             
             SetState(GameplayState.Start);
         }
 
-        private void OnDisable()
-        {
-            soundManager?.StopMusic();
-        }
 
         private void PlayerSmashed(Player unit)
         {
-            currentGameplayState.Value = GameplayState.Smashed;
             arena.PlaySmashAnimation(unit.Owner);
-            ball.gameObject.SetActive(false);
+            SetState(GameplayState.Smashed);
         }
 
         private void SetState(GameplayState newState)
@@ -106,15 +103,19 @@ namespace SmashBall.Gameplay
                     player.transform.rotation = Quaternion.identity;
                     enemy.transform.position = arena.spawnPoints[1].position;
                     enemy.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                    player.Reset();
+                    enemy.Reset();
                     ball.gameObject.SetActive(false);
+
+                    input.Reset();
                     
                     DOVirtual.DelayedCall(1f, () =>
                     {
-                        SetState(GameplayState.Serve);
+                        SetState(GameplayState.PrepareForServe);
                     }).OnDestroy(this);
                     
                     break;
-                case GameplayState.Serve:
+                case GameplayState.PrepareForServe:
                     var screen = uiFrame.GetScreen<BattleScreen>();
                     screen.ShowServeBar();
                     
@@ -122,41 +123,43 @@ namespace SmashBall.Gameplay
                     ball.Spawn(player.transform.position + Vector3.forward * gameplayConfig.ballServeOffset);
                     
                     gameplayCamera.ApplySettings(gameplayConfig.serveCameraSettings);
-                    player.AnimationsController.ServeStart();
+                    player.PrepareForServe();
+                    DOVirtual.DelayedCall(1f, () =>
+                    {
+                        SetState(GameplayState.WaitForServe);
+                    }).OnDestroy(this);
                     break;
                 case GameplayState.Play:
                     gameplayCamera.ApplySettings(gameplayConfig.gameCameraSettings);
                     break;
+                case GameplayState.Smashed:
+                    ball.gameObject.SetActive(false);
+                    DOVirtual.DelayedCall(3f, () =>
+                    {
+                        SetState(GameplayState.Start);
+                    }).OnDestroy(this);
+                    break;
+                case GameplayState.End:
+                    ball.gameObject.SetActive(false);
+                    DOVirtual.DelayedCall(2f, () =>
+                    {
+                        fsm.GoTo<ResultState>();
+                    }).OnDestroy(this);
+                    break;
             }
         }
 
-        private void Update()
+        private void PlayerServed(Player p)
         {
-            if (currentGameplayState.Value == GameplayState.Serve)
-            {
-                if (input.IsPointerUp)
-                {
-                    input.IsPointerUp = false;
-                
-                    SetState(GameplayState.Play);
-                    
-                    var screen = uiFrame.GetScreen<BattleScreen>();
-                    screen.HideServeBar();
-                    
-                    HitQuality power = (HitQuality)(screen.ServeBar.Power * 3);
-                    ball.SetDamage(Random.Range(20, 50));
-                    ball.SetAttackPower(power);
-                    ball.SetBallOwner(OwnerType.Player);
-                    ball.SetVelocity(Vector3.forward * 10);
-                    ball.PlayHit(Vector3.forward);
-                
-                    player.AnimationsController.Swing();
-                    
-                    soundManager.PlaySFX("Hit");
-                    
-                    messagePresenter.ShowHitQuality(power, player.transform.position - Vector3.back);
-                }
-            }
+            var screen = uiFrame.GetScreen<BattleScreen>();
+            screen.HideServeBar();
+            
+            SetState(GameplayState.Play);
+        }
+        
+        private void PlayerDead(Player p)
+        {
+            SetState(GameplayState.End);
         }
     }
 }

@@ -3,7 +3,8 @@ namespace SmashBall.Gameplay
     public enum GameplayState
     {
         Start,
-        Serve,
+        PrepareForServe,
+        WaitForServe,
         Play,
         Smashed,
         End

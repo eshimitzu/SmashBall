@@ -1,15 +1,18 @@
 using UnityEngine;
 
-public class Bumper : MonoBehaviour
+namespace SmashBall.Gameplay
 {
-    [SerializeField] private Animator animator;
-
-    
-    private static readonly int WallBumper = Animator.StringToHash("WallBumper");
-
-    
-    public void Bump()
+    public class Bumper : MonoBehaviour
     {
-        animator.Play(WallBumper);
+        [SerializeField] private Animator animator;
+
+    
+        private static readonly int WallBumper = Animator.StringToHash("WallBumper");
+
+    
+        public void Bump()
+        {
+            animator.Play(WallBumper);
+        }
     }
 }

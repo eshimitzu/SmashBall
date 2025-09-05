@@ -1,17 +1,26 @@
 using UnityEngine;
 
-public class PlayerInput
+namespace SmashBall.Gameplay
 {
-    private Vector2 inputVector = Vector2.zero;
-    
-    public bool IsPointerUp { get; set; }
-
-
-    public Vector2 InputVector => inputVector;
-
-
-    public void SetInputVector(Vector2 newInputVector)
+    public class PlayerInput
     {
-        inputVector = newInputVector;
+        private Vector2 inputVector = Vector2.zero;
+    
+        public bool IsPointerUp { get; set; }
+
+
+        public Vector2 InputVector => inputVector;
+
+
+        public void SetInputVector(Vector2 newInputVector)
+        {
+            inputVector = newInputVector;
+        }
+
+        public void Reset()
+        {
+            inputVector = Vector2.zero;
+            IsPointerUp = false;
+        }
     }
 }

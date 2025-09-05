@@ -32,6 +32,6 @@ namespace SmashBall.Sounds
             }
         }
 
-        public void StopMusic() => musicSource.Stop();
+        public void StopMusic() => musicSource?.Stop();
     }
 }

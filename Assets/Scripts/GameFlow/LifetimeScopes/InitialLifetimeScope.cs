@@ -2,6 +2,7 @@ using Dyra.Common;
 using Dyra.Flow;
 using SmashBall.Configs;
 using SmashBall.GameFlow.GameStates;
+using SmashBall.Gameplay;
 using SmashBall.Loading;
 using SmashBall.Sounds;
 using UIFramework;
@@ -9,6 +10,7 @@ using UIFramework.Runtime;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using GameplayState = SmashBall.GameFlow.GameStates.GameplayState;
 
 namespace SmashBall.GameFlow.LifetimeScopes
 {

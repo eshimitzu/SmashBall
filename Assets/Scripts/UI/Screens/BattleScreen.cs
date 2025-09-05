@@ -77,7 +77,8 @@ namespace SmashBall.UI.Screens
             var color = label.color;
             color.a = 0;
             label.color = color;
-            
+
+            DOTween.Kill(label.gameObject);
             DOTween.Sequence()
                 .Append(label.transform.DOScale(1f, 0.5f))
                 .Insert(0f, label.DOFade(1f, 0.5f))
