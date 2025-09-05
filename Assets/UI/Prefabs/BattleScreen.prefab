@@ -641,9 +641,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 0}
-  statusBarRoot: {fileID: 5276757239980989147}
   statusBarPrefab: {fileID: 4074549025934804836, guid: 3108253152b9c4240a976851b4480ed6, type: 3}
   ballOverlayPrefab: {fileID: 7600611635107503488, guid: 9da48be7bf26c48d9ad6de6c658aa4a8, type: 3}
+  damageLabelPrefab: {fileID: 1975632789668804749, guid: 67872eae42c424037ae05fbf8920465b, type: 3}
+  statusBarRoot: {fileID: 5276757239980989147}
   messageRoot: {fileID: 8698427135948230856}
   overlayRoot: {fileID: 5276757239980989147}
 --- !u!1 &7234618451303697246

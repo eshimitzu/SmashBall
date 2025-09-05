@@ -21,7 +21,7 @@ public class InitialLifetimeScope : LifetimeScope
     protected override void Configure(IContainerBuilder builder)
     {
         builder.RegisterInstance(gameplayConfig).AsSelf();
-        builder.Register<AutoInjectFactory>(Lifetime.Singleton).AsSelf();
+        builder.Register<AutoInjectFactory>(Lifetime.Scoped).AsSelf();
         builder.RegisterInstance(new CameraActivator(_uiCamera));
         
         RegisterServices(builder);

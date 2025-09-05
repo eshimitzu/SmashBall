@@ -1,10 +1,8 @@
 ﻿using System;
-using DG.Tweening;
 using EasyTweens;
-using UIFramework;
 using UnityEngine;
 
-namespace Magero.BuiltInTransitions
+namespace UIFramework.BuiltInTransitions
 {
     public class TweenAnimationTransition : UITransition
     {
