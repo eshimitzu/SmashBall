@@ -33,13 +33,11 @@ namespace SmashBall.UI.Screens
             serveBar.gameObject.SetActive(false);
         }
 
-        public void ShowDamage(int damage, Vector3 pos, Camera worldCamera)
+        public void ShowDamage(int damage, Transform target, Vector3 offset, Camera worldCamera)
         {
             var damageBar = Instantiate(damageLabelPrefab, statusBarRoot);
             damageBar.text = $"-{damage}";
-            
-            Vector3 screenPos = worldCamera.WorldToScreenPoint(pos);
-            damageBar.GetComponent<RectTransform>().anchoredPosition = screenPos;
+            damageBar.GetComponent<TransformAnchor>().Setup(worldCamera, target, offset);
 
             createdObjects.Add(damageBar.gameObject);
             DOTween.Sequence()
@@ -64,13 +62,11 @@ namespace SmashBall.UI.Screens
             serveBar.gameObject.SetActive(false);
         }
 
-        public void ShowHitQuality(HitQuality quality, Vector3 pos, Camera worldCamera)
+        public void ShowHitQuality(HitQuality quality, Transform target, Vector3 offset, Camera worldCamera)
         {
             var label = hitLabels[(int)quality];
             label.gameObject.SetActive(true);
-            
-            Vector3 screenPos = worldCamera.WorldToScreenPoint(pos);
-            label.GetComponent<RectTransform>().anchoredPosition = screenPos;
+            label.GetComponent<TransformAnchor>().Setup(worldCamera, target, offset);
             
             label.transform.localScale = Vector3.zero;
             

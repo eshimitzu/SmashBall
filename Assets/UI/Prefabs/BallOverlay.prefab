@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6929686682830580807}
   - component: {fileID: 7600611635107503488}
+  - component: {fileID: 7503528912289193861}
   m_Layer: 5
   m_Name: BallOverlay
   m_TagString: Untagged
@@ -50,6 +51,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageLabel: {fileID: 1665218503386985104}
+  anchor: {fileID: 7503528912289193861}
+--- !u!114 &7503528912289193861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4480448166059769349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0167b069f883f4a0992d691858342e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7951793269190552361
 GameObject:
   m_ObjectHideFlags: 0

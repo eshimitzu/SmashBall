@@ -21,7 +21,7 @@ namespace SmashBall.Gameplay
             {
                 if (nextAction == null)
                 {
-                    hitNextBall = true;
+                    hitNextBall = Random.Range(0, 100) < 90;
                     nextHitDistance = player.AttackRange * Random.Range(0.5f, 1f);
                     nextAction = new GameTimer(Random.Range(1, 5f));
                 }

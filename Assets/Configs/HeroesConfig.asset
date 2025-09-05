@@ -17,3 +17,4 @@ MonoBehaviour:
     heroPrefabEnemy: {fileID: 6911031323963228796, guid: 3aec3f98f86be4c13953c94a45b701f0, type: 3}
     health: 2000
     attack: 30
+    ability: {fileID: 11400000, guid: 147720924143341ddbca8512451b87b2, type: 2}

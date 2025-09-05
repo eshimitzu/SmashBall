@@ -30,7 +30,7 @@ namespace SmashBall.GameFlow.LifetimeScopes
             builder.RegisterInstance(gameplayConfig).AsSelf();
             builder.RegisterInstance(heroesConfig).AsSelf();
             builder.Register<AutoInjectFactory>(Lifetime.Scoped).AsSelf();
-            builder.RegisterInstance(new CameraActivator(_uiCamera));
+            // builder.RegisterInstance(new CameraActivator(_uiCamera));
         
             RegisterServices(builder);
 

@@ -4,7 +4,6 @@ using Dyra.Flow;
 using SmashBall.Configs;
 using SmashBall.Extensions;
 using SmashBall.GameFlow.GameStates;
-using SmashBall.Sounds;
 using SmashBall.UI.Presenters;
 using SmashBall.UI.Screens;
 using UIFramework.Runtime;
@@ -50,8 +49,8 @@ namespace SmashBall.Gameplay
                 null);
         
             //calculate from configs and upgrades
-            PlayerState playerState = new PlayerState(config.health, 20);
-            player.Setup(playerState, OwnerType.Player);
+            PlayerState playerState = new PlayerState(config.health);
+            player.Setup(playerState, OwnerType.Player, config);
             player.OnSmashed += PlayerSmashed;
             player.OnServe += PlayerServed;
             player.OnDeath += PlayerDead;
@@ -62,8 +61,8 @@ namespace SmashBall.Gameplay
                 null);
 
             //calculate from configs and upgrades
-            PlayerState enemyState = new PlayerState(config.health, 20);
-            enemy.Setup(enemyState, OwnerType.Enemy);
+            PlayerState enemyState = new PlayerState(config.health);
+            enemy.Setup(enemyState, OwnerType.Enemy, config);
             enemy.OnSmashed += PlayerSmashed;
             enemy.OnServe += PlayerServed;
             enemy.OnDeath += PlayerDead;
@@ -79,8 +78,8 @@ namespace SmashBall.Gameplay
 
             var battleScreen = uiFrame.GetScreen<BattleScreen>();
             battleScreen.AddStatusBar(player, gameplayCamera.Cam, Vector3.back * 0.5f);
-            battleScreen.AddStatusBar(enemy, gameplayCamera.Cam, Vector3.back * 0.5f);
-            battleScreen.AddBallOverlay(ball, gameplayCamera.Cam, Vector3.up * 0.55f);
+            battleScreen.AddStatusBar(enemy, gameplayCamera.Cam, Vector3.up * 3f);
+            battleScreen.AddBallOverlay(ball, gameplayCamera.Cam, Vector3.up * 0.65f);
             
             SetState(GameplayState.Start);
         }
@@ -159,6 +158,7 @@ namespace SmashBall.Gameplay
         
         private void PlayerDead(Player p)
         {
+            arena.PlaySmashAnimation(p.Owner);
             SetState(GameplayState.End);
         }
     }

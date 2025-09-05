@@ -19,6 +19,6 @@ namespace SmashBall.Configs
         public Player heroPrefabEnemy;
         public int health;
         public int attack;
-        public IAbility ability;
+        public BaseAbilityData ability;
     }
 }

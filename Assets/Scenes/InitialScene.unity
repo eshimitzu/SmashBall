@@ -285,7 +285,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   _uiSettings: {fileID: 11400000, guid: 2138a5d6c271a4e76be6a5b18b8875bb, type: 2}
-  _uiCamera: {fileID: 689608901}
+  _uiCamera: {fileID: 0}
   _mainCanvas: {fileID: 940612017}
   gameplayConfig: {fileID: 11400000, guid: d7ea324ba385c4cf0a058c7ffe975015, type: 2}
   heroesConfig: {fileID: 11400000, guid: 6cad383e1eaf14ee6addb8c8e11509d2, type: 2}
@@ -543,7 +543,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -687,8 +687,8 @@ Canvas:
   m_GameObject: {fileID: 940612014}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
-  m_Camera: {fileID: 689608901}
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

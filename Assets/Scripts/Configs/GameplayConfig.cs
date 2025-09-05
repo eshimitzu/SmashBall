@@ -15,6 +15,7 @@ namespace SmashBall.Configs
         [SerializeField] public float ballMaxSpeed;
         [SerializeField] public float ballSpeedUpPerHit;
         [SerializeField] public float ballServeOffset;
+        [SerializeField] public float autoAimAngle;
 
         [SerializeField] public CameraSettings serveCameraSettings;
         [SerializeField] public CameraSettings gameCameraSettings;

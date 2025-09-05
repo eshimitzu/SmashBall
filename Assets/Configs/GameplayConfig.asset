@@ -17,7 +17,8 @@ MonoBehaviour:
   playerRotationSpeed: 10
   ballStartSpeed: 10
   ballMaxSpeed: 30
-  ballSpeedUpPerHit: 2
+  ballSpeedUpPerHit: 1
   ballServeOffset: 3
+  autoAimAngle: 0.005
   serveCameraSettings: {fileID: 11400000, guid: c0858a885e40849869e641a41bb19f75, type: 2}
   gameCameraSettings: {fileID: 11400000, guid: 16fa89f09b83746e285d2754e97e107c, type: 2}

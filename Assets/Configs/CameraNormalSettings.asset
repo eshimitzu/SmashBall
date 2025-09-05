@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6a7cf7d8d174cbea8ff5183053936b, type: 3}
   m_Name: CameraNormalSettings
   m_EditorClassIdentifier: 
-  followDistance: 36.6
-  offset: {x: 0, y: 0, z: 3}
-  fieldOfView: 35
+  followDistance: 30
+  offset: {x: 0, y: 0, z: 8}
+  fieldOfView: 50
   followSpeed: 5
   rotation: {x: 51.9, y: 0, z: 0}

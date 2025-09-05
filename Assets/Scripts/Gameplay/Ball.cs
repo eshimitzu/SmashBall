@@ -18,6 +18,7 @@ namespace SmashBall.Gameplay
 
         [Inject] private SoundManager soundManager;
         [Inject] private GameplayConfig gameplayConfig;
+        [Inject] private IGameplay gameplay;
 
         public Vector3 Velocity { get; private set; }
     
@@ -33,7 +34,7 @@ namespace SmashBall.Gameplay
             Velocity = Vector3.zero;
             Damage.Value = 1;
 
-            SetBallOwner(OwnerType.Player);
+            SetBallOwner(OwnerType.Enemy);
             SetAttackPower(HitQuality.Early);
         }
 
@@ -67,9 +68,24 @@ namespace SmashBall.Gameplay
 
             AttackPower = power;
         }
+
+        public void AimShot(float speed)
+        {
+            Player target = BallOwner == OwnerType.Enemy ? gameplay.Player : gameplay.Enemy;
+            Vector3 direction = target.transform.position - transform.position;
+            Velocity = direction.normalized * speed;
+        }
     
         private void FixedUpdate()
         {
+            float speed = Velocity.magnitude;
+            if (Velocity.magnitude > 0.1f)
+            {
+                Player opponent = BallOwner == OwnerType.Enemy ? gameplay.Player : gameplay.Enemy;
+                Vector3 direction = opponent.transform.position - transform.position;
+                Vector3 rotated = Vector3.RotateTowards(Velocity, direction, gameplayConfig.autoAimAngle, 0);
+                Velocity = rotated.normalized * speed;
+            }
             body.MovePosition(body.position + Velocity * Time.fixedDeltaTime);
         }
 
@@ -91,7 +107,7 @@ namespace SmashBall.Gameplay
 
             PlayBounce(direction);
         }
-
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("wallBumper"))
